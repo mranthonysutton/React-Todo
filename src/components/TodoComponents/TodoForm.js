@@ -51,7 +51,6 @@ class ToDoForm extends Component {
             label="Add To-Do"
             type="text"
             name="item"
-            id="item"
             value={this.state.newItem}
             onChange={this.handleChange}
           />
@@ -64,7 +63,6 @@ class ToDoForm extends Component {
             label="Search Tasks..."
             type="text"
             name="searchTasks"
-            id="searchTasks"
             value={this.state.searchTerm}
             onChange={this.handleSearch}
           />
