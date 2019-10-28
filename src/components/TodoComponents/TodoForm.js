@@ -5,12 +5,17 @@ class ToDoForm extends Component {
   constructor() {
     super();
     this.state = {
-      newItem: ""
+      newItem: "",
+      searchTerm: ""
     };
   }
 
   handleChange = e => {
     this.setState({ newItem: e.target.value });
+  };
+
+  handleSearchChange = e => {
+    this.setState({ searchTerm: e.target.value });
   };
 
   handleAddTask = e => {
@@ -27,7 +32,11 @@ class ToDoForm extends Component {
     this.props.clearTasks();
   };
 
-  handleSearch = e => {};
+  handleSearch = e => {
+    e.preventDefault();
+    this.props.searchTask(this.state.searchTerm.toLowerCase());
+    this.setState({ searchTerm: "" });
+  };
 
   render() {
     return (
@@ -56,6 +65,8 @@ class ToDoForm extends Component {
             type="text"
             name="searchTasks"
             id="searchTasks"
+            value={this.state.searchTerm}
+            onChange={this.handleSearchChange}
           />
           <div className="button-container">
             <Button
@@ -66,6 +77,15 @@ class ToDoForm extends Component {
               onClick={this.handleAddTask}
             >
               Add To Do
+            </Button>
+            <Button
+              variant="contained"
+              color="default"
+              type="submit"
+              size="large"
+              onClick={this.handleSearch}
+            >
+              Search Tasks
             </Button>
             <Button
               variant="contained"

@@ -71,7 +71,19 @@ class App extends Component {
       list: this.state.list.filter(task => {
         if (task.completed === false) {
           return task;
+        } else {
+          return "";
         }
+      })
+    });
+  };
+
+  searchTask = searchQuery => {
+    console.log(searchQuery);
+
+    this.setState({
+      list: this.state.list.filter(task => {
+        return task.task.toLowerCase().includes(searchQuery);
       })
     });
   };
@@ -80,7 +92,11 @@ class App extends Component {
     return (
       <div className="main-container">
         <h2>Welcome to your Todo App!</h2>
-        <TodoForm addTask={this.addTask} clearTasks={this.clearTasks} />
+        <TodoForm
+          addTask={this.addTask}
+          clearTasks={this.clearTasks}
+          searchTask={this.searchTask}
+        />
         <TodoList
           task={this.state.list}
           toggleCompleted={this.toggleCompleted}
