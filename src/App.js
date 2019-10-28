@@ -2,6 +2,8 @@ import React, { Component } from "react";
 import TodoForm from "./components/TodoComponents/TodoForm";
 import TodoList from "./components/TodoComponents/TodoList";
 
+import "./components/TodoComponents/Todo.css";
+
 const data = [
   {
     task: "Learn Material UI",
@@ -45,12 +47,30 @@ class App extends Component {
     });
   };
 
+  toggleCompleted = id => {
+    this.setState({
+      list: this.state.list.map(task => {
+        if (task.id === id) {
+          return {
+            ...task,
+            completed: !task.completed
+          };
+        } else {
+          return task;
+        }
+      })
+    });
+  };
+
   render() {
     return (
       <div>
         <h2>Welcome to your Todo App!</h2>
         <TodoForm addTask={this.addTask} />
-        <TodoList task={this.state.list} />
+        <TodoList
+          task={this.state.list}
+          toggleCompleted={this.toggleCompleted}
+        />
       </div>
     );
   }
