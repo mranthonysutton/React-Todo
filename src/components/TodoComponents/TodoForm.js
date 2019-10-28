@@ -1,4 +1,5 @@
 import React, { Component } from "react";
+import { Button, TextField } from "@material-ui/core";
 
 class ToDoForm extends Component {
   constructor() {
@@ -30,21 +31,37 @@ class ToDoForm extends Component {
     return (
       <div className="form-container">
         <form>
-          <input
+          <TextField
+            id="outlined-with-placeholder"
+            variant="outlined"
+            placeaholder="Add To-Do"
+            margin="normal"
+            label="Add To-Do"
             type="text"
-            placeholder="Add to-do"
             name="item"
             id="item"
             value={this.state.newItem}
             onChange={this.handleChange}
           />
           <div className="button-container">
-            <button type="submit" onClick={this.handleAddTask}>
+            <Button
+              variant="contained"
+              color="primary"
+              type="submit"
+              size="large"
+              onClick={this.handleAddTask}
+            >
               Add To Do
-            </button>
-            <button type="submit" onClick={this.handleClearTasks}>
+            </Button>
+            <Button
+              variant="contained"
+              color="secondary"
+              type="submit"
+              size="large"
+              onClick={this.handleClearTasks}
+            >
               Clear Completed
-            </button>
+            </Button>
           </div>
         </form>
       </div>

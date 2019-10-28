@@ -1,3 +1,33 @@
 .task.completed {
   text-decoration: line-through;
 }
+
+.task {
+  background-color: red;
+  cursor: pointer;
+  width: 40%;
+  margin: 1%;
+  text-align: center;
+  color: #fff;
+}
+
+.list-items-container {
+  display: flex;
+  align-content: center;
+  align-items: center;
+  justify-content: space-evenly;
+  justify-items: center;
+  flex-wrap: wrap;
+}
+
+.form-container {
+  width: 60%;
+  margin: 0 auto;
+  text-align: center;
+  font-size: 1.2rem;
+}
+
+.main-container h2 {
+  text-align: center;
+  font-size: 2.5rem;
+}
