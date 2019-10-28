@@ -27,14 +27,17 @@ class ToDoForm extends Component {
     this.props.clearTasks();
   };
 
+  handleSearch = e => {};
+
   render() {
     return (
       <div className="form-container">
         <form>
           <TextField
+            className="todo-input-field"
             id="outlined-with-placeholder"
             variant="outlined"
-            placeaholder="Add To-Do"
+            placeholder="Add To-Do"
             margin="normal"
             label="Add To-Do"
             type="text"
@@ -42,6 +45,17 @@ class ToDoForm extends Component {
             id="item"
             value={this.state.newItem}
             onChange={this.handleChange}
+          />
+          <TextField
+            className="todo-input-field"
+            id="outlined-with-placeholder"
+            variant="outlined"
+            placeholder="Search Tasks..."
+            margin="normal"
+            label="Search Tasks..."
+            type="text"
+            name="searchTasks"
+            id="searchTasks"
           />
           <div className="button-container">
             <Button
