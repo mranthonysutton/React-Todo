@@ -79,8 +79,6 @@ class App extends Component {
   };
 
   searchTask = searchQuery => {
-    console.log(searchQuery);
-
     this.setState({
       list: this.state.list.filter(task => {
         return task.task.toLowerCase().includes(searchQuery);

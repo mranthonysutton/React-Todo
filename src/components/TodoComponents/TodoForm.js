@@ -35,7 +35,7 @@ class ToDoForm extends Component {
   handleSearch = e => {
     e.preventDefault();
     this.props.searchTask(this.state.searchTerm.toLowerCase());
-    this.setState({ searchTerm: "" });
+    this.setState({ searchTerm: "" || e.target.value });
   };
 
   render() {
@@ -66,7 +66,7 @@ class ToDoForm extends Component {
             name="searchTasks"
             id="searchTasks"
             value={this.state.searchTerm}
-            onChange={this.handleSearchChange}
+            onChange={this.handleSearch}
           />
           <div className="button-container">
             <Button
@@ -78,7 +78,7 @@ class ToDoForm extends Component {
             >
               Add To Do
             </Button>
-            <Button
+            {/* <Button
               variant="contained"
               color="default"
               type="submit"
@@ -86,7 +86,7 @@ class ToDoForm extends Component {
               onClick={this.handleSearch}
             >
               Search Tasks
-            </Button>
+            </Button> */}
             <Button
               variant="contained"
               color="secondary"
