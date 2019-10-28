@@ -21,6 +21,11 @@ class ToDoForm extends Component {
     this.setState({ newItem: "" });
   };
 
+  handleClearTasks = e => {
+    e.preventDefault();
+    this.props.clearTasks();
+  };
+
   render() {
     return (
       <div className="form-container">
@@ -37,7 +42,9 @@ class ToDoForm extends Component {
             <button type="submit" onClick={this.handleAddTask}>
               Add To Do
             </button>
-            <button type="submit">Clear Completed</button>
+            <button type="submit" onClick={this.handleClearTasks}>
+              Clear Completed
+            </button>
           </div>
         </form>
       </div>

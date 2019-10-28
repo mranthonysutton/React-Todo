@@ -62,11 +62,21 @@ class App extends Component {
     });
   };
 
+  clearTasks = () => {
+    this.setState({
+      list: this.state.list.filter(task => {
+        if (task.completed === false) {
+          return task;
+        }
+      })
+    });
+  };
+
   render() {
     return (
       <div>
         <h2>Welcome to your Todo App!</h2>
-        <TodoForm addTask={this.addTask} />
+        <TodoForm addTask={this.addTask} clearTasks={this.clearTasks} />
         <TodoList
           task={this.state.list}
           toggleCompleted={this.toggleCompleted}
