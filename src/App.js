@@ -32,12 +32,24 @@ class App extends Component {
       list: data
     };
   }
+  // Function allows us to take the task, deconstructs the original state list, and adds the new item to the end
+  addTask = taskName => {
+    const newTask = {
+      task: taskName,
+      id: Date.now(),
+      completed: false
+    };
+
+    this.setState({
+      list: [...this.state.list, newTask]
+    });
+  };
 
   render() {
     return (
       <div>
         <h2>Welcome to your Todo App!</h2>
-        <TodoForm />
+        <TodoForm addTask={this.addTask} />
         <TodoList task={this.state.list} />
       </div>
     );

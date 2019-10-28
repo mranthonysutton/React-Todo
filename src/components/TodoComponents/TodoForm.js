@@ -15,10 +15,10 @@ class ToDoForm extends Component {
   handleAddTask = e => {
     // Stops the form from refreshing
     e.preventDefault();
+    // Adds the task that has been passed into state
+    this.props.addTask(this.state.newItem);
     // Clears the input to an empty value
     this.setState({ newItem: "" });
-    // Logs the state of what was input from the form, into state
-    console.log(this.state.newItem);
   };
 
   render() {
